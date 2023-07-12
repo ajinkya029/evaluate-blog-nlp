@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sentiment Analysis</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container flex">
+            <h1 class="logo">Logo</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Navigation</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="urlForm" autocomplete="off">
+                <label for="urlInput">Enter URL:</label>
+                <input type="text" id="urlInput" autocomplete="off">
+                <button type="submit">Analyze</button>
+            </form>
+            <div id="resultContainer" style="display: none;">
+                <h2>Analysis Results:</h2>
+            </div>
+            <div id="error" style="display: none;"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Copyright &copy; 2023</p>
+        </div>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
